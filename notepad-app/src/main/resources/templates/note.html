@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Electronic notepad</title>
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+</head>
+<body class="container">
+<h3>"Выделенная заметка"</h3>
+<header class="header">
+    <p>№ п/п</p>
+    <p>Заголовок</p>
+    <p>Текст заметки</p>
+    <p>Дата создания</p>
+</header>
+<article class="table-body">
+    <p th:text="${note.noteId}"></p>
+    <p th:text="${note.topic}"></p>
+    <p th:text="${note.textNote}"></p>
+    <p th:text="${note.creationTime}"></p>
+    <div>
+        <button type="button">
+            <a th:href="@{/notepad}">НА ГЛАВНУЮ</a>
+        </button>
+    </div>
+</article>
+</body>
+</html>

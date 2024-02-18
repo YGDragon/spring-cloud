@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Create note</title>
+        <link th:href="@{/style.css}" rel="stylesheet"/>
+    </head>
+    <body class="container">
+        <h3>Создать запись в электронном блокноте</h3>
+        <form th:action="@{/notepad/create}" th:object="${note}" th:method="post">
+            <article class="form-body">
+                <div>
+                    <label>Заголовок:&nbsp;</label>
+                    <input type="textNote" value="" name="topic"/>
+                </div>
+                <div>
+                    <label>Текст заметки:&nbsp;</label>
+                    <input type="text" value="" name="textNote"/>
+                </div>
+            </article>
+            <button type="submit">Создать</button>
+        </form>
+    </body>
+</html>

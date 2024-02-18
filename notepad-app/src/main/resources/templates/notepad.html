@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Electronic notepad</title>
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+</head>
+<body class="container">
+<h3 >Электронный блокнот</h3>
+<button type="button" class="create-button"><a th:href="@{/notepad/create}">ДОБАВИТЬ ЗАМЕТКУ</a></button>
+<header class="header">
+    <p>№ п/п</p>
+    <p>Заголовок</p>
+    <p>Текст заметки</p>
+    <p>Дата создания</p>
+</header>
+<article class="table-body" th:each="note, iterStat : ${notes}">
+    <p th:text="${note.noteId}"></p>
+    <p th:text="${note.topic}"></p>
+    <p th:text="${note.textNote}"></p>
+    <p th:text="${note.creationTime}"></p>
+    <button type="button">
+        <a th:href="@{/notepad/update/{id}(id=${note.noteId})}">ОБНОВИТЬ ЗАМЕТКУ</a>
+    </button>
+    <button type="button">
+        <a th:href="@{/notepad/delete/{id}(id=${note.noteId})}">УДАЛИТЬ ЗАМЕТКУ</a>
+    </button>
+    <button type="button">
+        <a  th:href="@{/notepad/note/{id}(id=${note.noteId})}">ВЫДЕЛИТЬ ЗАМЕТКУ</a>
+    </button>
+</article>
+</body>
+</html>

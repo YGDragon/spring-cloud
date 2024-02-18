@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit note</title>
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+</head>
+<body class="container">
+    <h3>Редактировать заметку</h3>
+    <form th:action="@{/notepad/update/{id}(id=${ID})}" th:object="${note}" th:method="post">
+        <article class="form-body">
+            <div class="form-body__id">
+                <label>№ п/п</label>
+                <p th:text="${noteId}"></p>
+            </div>
+            <div>
+                <label for="topic">Заголовок:</label>
+                <input type="text" th:field="*{topic}" id="topic">
+            </div>
+            <div>
+                <label for="textNote">Текст заметки:</label>
+                <input type="text" th:field="*{textNote}" id="textNote">
+            </div>
+        </article>
+        <button type="submit">Изменить заметку</button>
+    </form>
+</body>
+</html>
